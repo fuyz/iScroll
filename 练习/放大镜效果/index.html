@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>iScroll demo: minimap</title>
+
+<script type="text/javascript" src="../iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll;
+
+function loaded () {
+	myScroll = new IScroll('#wrapper', {
+		startX: -259,
+		startY: -385,
+		scrollY: true,
+		scrollX: true,
+		freeScroll: true,
+		mouseWheel: true,
+		indicators: {
+			el: document.getElementById('minimap'),
+			interactive: true
+		}
+	});
+}
+
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+</script>
+
+<style type="text/css">
+
+body {
+	overflow: hidden; /* this is important to prevent the whole page to bounce */
+}
+
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	width: 235px;
+	height: 321px;
+	top: 20px;
+	left: 20px;
+	background: #555;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	width: 797px;
+	height: 1087px;
+	background: url(ermine.jpg);
+}
+
+#minimap {
+	cursor: pointer;
+	width: 235px;
+	height: 321px;
+	background: url(ermine.jpg);
+	background-size: 235px 321px;
+	margin-left: 300px;
+}
+
+#minimap-indicator {
+	/*position: absolute;*/
+	/*z-index: 1;*/
+
+	border: 1px solid #fe0;
+	box-shadow: 0 0 5px #000;
+	background: rgba(255,255,255,0.35);
+
+}
+
+
+</style>
+</head>
+<body onload="loaded()">
+
+<div id="wrapper">
+	<div id="scroller"></div>
+</div>
+
+<div id="minimap">
+	<div id="minimap-indicator"></div>
+</div>
+
+<ul id="bookmarks">
+	<li><a href="javascript:myScroll.scrollTo(-359, -85, 400, IScroll.utils.ease.back)">Face</a></li>
+	<li><a href="javascript:myScroll.scrollTo(-288, -342, 400, IScroll.utils.ease.back)">Necklace</a></li>
+	<li><a href="javascript:myScroll.scrollTo(-264, -658, 400, IScroll.utils.ease.back)">Hand</a></li>
+	<li><a href="javascript:myScroll.scrollTo(-383, -539, 400, IScroll.utils.ease.back)">Ermine</a></li>
+</ul>
+
+</body>
+</html>
