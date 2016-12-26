@@ -90,6 +90,7 @@
 
     <script src="iscroll.js"></script>
     <!--<script src="iscroll-zoom.js"></script>-->
+    <!--<script src="iscroll-probe.js"></script>-->
     <script>
         var myscroll;
         function loaded() {
@@ -108,30 +109,30 @@
                 interactiveScrollbar: true,
                 shrinkScrollbars: 'scale', //(scale,clip,收缩程度不一样)
                 //自定义滚动条：
-                scrollbars: 'custom',
+//                scrollbars: 'custom',
 
                 //通过滚轮放大缩小
-                zoom: true,
-                mouseWheel: true,
-                wheelAction: 'zoom',
-                zoomMax: 10,  //放大的最大倍数
-                zoomMin: 0.1, //缩小的最下倍数
-                startZoom: 1,  //初始倍数
+//                zoom: true,
+//                mouseWheel: true,
+//                wheelAction: 'zoom',
+//                zoomMax: 10,  //放大的最大倍数
+//                zoomMin: 0.1, //缩小的最下倍数
+//                startZoom: 1,  //初始倍数
 
                 //反弹动画
-                bounceEasing: 'quadratic', //'quadratic', 'circular', 'back', 'bounce', 'elastic'
-                bounceTime: 1000,
+//                bounceEasing: 'quadratic', //'quadratic', 'circular', 'back', 'bounce', 'elastic'
+//                bounceTime: 1000,
+
+                probeType: 3
 
             });
-            myscroll.on('scrollEnd', function () {
 
-                console.log(this, this.x,this.y);
-                if (this.y < -500) {
-                    myscroll.refresh();
+            myscroll.on('slideDown', function () {
+                console.log( this.y);
+                if (this.y > 100) {
+//                    myscroll.refresh();
                     console.info('下拉刷新')
                 }
-
-
             });
         }
 

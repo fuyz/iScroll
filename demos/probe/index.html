@@ -23,7 +23,7 @@ function loaded () {
 	myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
 
 	myScroll.on('scroll', updatePosition);
-	myScroll.on('scrollEnd', updatePosition);
+//	myScroll.on('scrollEnd', updatePosition);
 }
 
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
